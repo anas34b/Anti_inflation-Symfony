@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ListesArticles{% endblock %}
+{% block monTitre %}Voici mes listes{% endblock %}
+{% block body %}
+    <a href="{{path('ListeAjout')}}" class="btn btn-outline-success">ajouter</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th>nombre d'articles</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for liste in listes %}
+    <tr>
+      <th scope="row">{{ liste.id }}</th>
+      <td><a class="btn btn-primary" href="{{path('afficherliste',{'id' : liste.id })}}">{{ liste.nom }}</a> 
+      </td>
+      {# <td>{{ count(liste.articles) }}</td> #}
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

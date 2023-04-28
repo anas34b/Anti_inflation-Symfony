@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+{% block monTitre %}Ajout d'un article{% endblock %}
+{% block body %}
+  {{form_start(form)}}
+      {{form_widget(form)}}
+      <input type="submit" href="{{path('Supprimertype')}}" class="col btn btn-success" value="ajouter">
+        <a href="{{path('types')}}" class="btn btn-primary">Retour</a>
+  {{form_end(form)}}
+{% endblock %}

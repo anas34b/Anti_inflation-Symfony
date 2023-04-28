@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ListesArticles{% endblock %}
+{% block monTitre %}ajouter les article dans la liste {{ liste.nom }} {% endblock %}
+{% block body %}
+{{form_start(form)}}
+      {{form_widget(form)}}
+      <input type="submit"  class="col btn btn-success" value="ajouter">
+        <a href="{{path('listes')}}" class="btn btn-primary">Retour</a>
+  {{form_end(form)}}
+{% endblock %}

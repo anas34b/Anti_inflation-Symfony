@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ListesArticles{% endblock %}
+{% block monTitre %}Voici mes articles de la liste {{ liste.nom }}{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <div class="p-3 mb-2 bg-info text-dark">
+      article le plus chere est {{articlechere}}
+      </div>
+    </div>
+    <div class="col">
+    <div class="p-3 mb-2 bg-info text-dark">
+      article le moins chere est {{articlepaschere}}
+      </div>
+    </div>
+    <div class="col">
+    <div class="p-3 mb-2 bg-info text-dark">
+      totale est de {{ totale }} 
+      </div>
+    </div>
+    <div class="col">
+    <div class="p-3 mb-2 bg-info text-dark">
+      le nombre d'articles est de {{ comptage }} 
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Article</th>
+      <th>Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for relation in relation %}
+    <tr>
+      <th scope="row">{{ relation.id }}</th>
+      <th>{{ relation.nom }}</th>
+      <th>{{relation.prix}}</th>
+      <th><a class="col btn btn-danger" href="{{ path('Supprimerarticleliste', {'id': liste.id, 'articleId': relation.id}) }}">supprimer</a></th>
+    </tr>    
+    {% endfor %}
+      <a href="{{path('Ajoutarticleliste',{'id' : liste.id })}}" class="col btn btn-success">Ajouter article</a></td>
+    
+  </tbody>
+</table>
+{% endblock %}
